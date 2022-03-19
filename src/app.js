@@ -8,8 +8,6 @@ const MongoStore = require('connect-mongo')(sessions);
 
 const dbString = `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@mongodb:${process.env.MONGODB_DOCKER_PORT}`
 
-console.log(dbString)
-
 const dbOptions = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -23,6 +21,7 @@ const sessionStore = new MongoStore({
  })
 
 const app = express()
+
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
